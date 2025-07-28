@@ -6,9 +6,104 @@
     <title>25.07.24</title>
 </head>
 <body>
-    <h1>25.07.24</h1>
-    <p>var, let, const, typeof, 자료형</p>
+    <h2>변수 let,var 사용 계산하기</h2>
+
+    <h3>// 선언부</h3>
+    <p>// let width 너비를 저장할 변수 선언</p>
+    <p>// let height 너비를 저장할 변수 선언<br></p>
+
+    <h3>// 구현부</h3>
+    <p>// width = 200; 변수에 값 대입</p>
+    <p id="width"></p>
+    <p>// height = 50; 변수에 값 대입</p>
+    <p id="height"></p>
+    <p>// var area = width * height; 변수 선언과 동시에 계산 결괏갑 대입<br></p>
+
+    <h3>// 출력부</h3>
+    <p>//console.log(area) 결과값을 콘솔에 출력</p>
+    <p id="area"><br></p>
+
+    <h2>상수 사용</h2>
+    <h3>// 선언부</h3>
+    <p>//const PI = 3.14; 원주율을 상수로 선언</p>
+    <p id="pi"><br></p>
+    <p> //let radius = prompt("반지름을 입력하세요."); 반지름값 입력 받기</p>
+    <p id="radius"><br></p>
+    <h3>// 구현부</h3>
+    <p> //var area2 = PI * radius * radius; 변수를 사용해 원의 넓이 계산</p>
+    <h3>// 출력부</h3>
+    <p id="area2"><br></p>
+    <p>//console.log(area2) 원의 넓이 출력</p>
+    <h2>Type of</h2>
+    <p id="num1"></p>
+    <p id="big1"></p>
+    <p id="text1"></p>
+    <p id="text2"></p>
+    <p id="true1"></p>
+    <p id="seasons1"></p>
+    <p id="date1"></p>
+    <p id="undef1"></p>
+
     <script>
+        //선언
+        let width;
+        let height;
+        //구현
+        width = 200;
+        document.getElementById("width").innerHTML = `너비는 ${width}로 할당되었습니다.`;
+        height = 50;
+        document.getElementById("height").innerHTML = `높이는 ${height}로 할당되었습니다.`;
+        var area = width * height
+        document.getElementById("area").innerHTML = `계산결과 면적은 ${area}입니다.`;
+        //출력
+        console.log(area);
+
+        //상수
+        //선언
+        const PI = 3.14;
+        document.getElementById("pi").innerHTML = `PI는 ${PI}로 할당되었습니다.`;
+        let radius = prompt("반지름을 입력하세요");
+        document.getElementById("radius").innerHTML = `반지름은 ${radius}로 할당되었습니다.`;
+        //구현
+        var area2 = PI * radius * radius;
+        //출력
+        console.log(area2);
+        document.getElementById("area2").innerHTML = `계산결과 면적은 ${area2}입니다.`;
+
+
+        //자료형
+        //선언 및 출력
+        let num1 = 2000;
+        let typ1 = typeof num1;
+        document.getElementById("num1").innerHTML = `${num1}의 자료형은 ${typ1}입니다. `;
+
+        let big1 = 56046506n;
+        let typ2 = typeof big1;
+        document.getElementById("big1").innerHTML = `${big1}의 자료형은 ${typ2}입니다. `;
+
+        let text1 = "Hello!";
+        let typ3 = typeof text1;
+        document.getElementById("text1").innerHTML = `"${text1}"의 자료형은 ${typ3}입니다. `;
+
+        let text2 = 'abcd';
+        let typ4 = typeof text2;
+        document.getElementById("text2").innerHTML = `'${text2}'의 자료형은 ${typ4}입니다. `;
+
+        let true1 = true;
+        let typ5 = typeof true1;
+        document.getElementById("true1").innerHTML = `${true}의 자료형은 ${typ5}입니다. `;
+
+        let seasons1 = ['봄', '여름', '가을', '겨울'];
+        let typ6 = typeof seasons1;
+        document.getElementById("seasons1").innerHTML = `${seasons1}의 자료형은 ${typ6}입니다. `;
+
+        let date1 = new Date();
+        let typ7 = typeof date1;
+        document.getElementById("date1").innerHTML = `${date1}의 자료형은 ${typ7}입니다. `;
+
+        let undef1;
+        let typ8 = typeof undef1;
+        document.getElementById("undef1").innerHTML = `${undef1}의 자료형은 ${typ8}입니다. `;
 
     </script>
 </body>
