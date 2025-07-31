@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.07.31</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>25.07.31</h1>
+    <p id="result"></p>
+    <script>
+        const number = parseInt(prompt('몇명인가요?'));
+        let no = [];
+        for(let i = 1; i <= number; i++) {
+            no.push(i);
+        }
+        no.map((n) => {
+            if(n % 6 === 0) {
+                document.writeln('<br>');
+            }
+            document.writeln(`자리${n}  `);
+        })
+    </script>
+</body>
+</html>

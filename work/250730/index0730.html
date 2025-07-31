@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.07.30</title>
+</head>
+<body>
+    <h1>25.07.30</h1>
+    <p id="result"></p>
+    <script>
+        let text = "";
+        const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi", "BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+        for(let i = 0; i < cars.length; i++) {
+            console.log(i);
+            console.log(cars[i]);
+            text += cars[i] + "<br>";
+        }
+        document.getElementById('result').innerHTML = text;
+    </script>
+</body>
+</html>
