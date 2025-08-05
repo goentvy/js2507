@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ JS ] 25.08.05</title>
+    <style>
+        /* 8. */
+        #containerBox1, #containerBox2 {
+            background-color: coral;
+            padding: 50px;
+        }
+
+        #whiteBox1, #whiteBox2 {
+            background-color: white; 
+            font-size: 20px;
+            border: 1px solid;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body onload="checkCookies()">
+    <h1>JavaScript HTML Events</h1>
+    <h2>The onclick Attribute</h2>
+
+    <p>1. element click text change</p>
+    <h2 onclick="changeText(this)">Click on This Text!</h2>
+    <hr>
+    <p>2. button click date</p>
+    <button onclick="displayDate()">The Time is?</button>
+    <p id="demo"></p>
+    <hr>
+    <p>3. body onload cookie check </p>
+    <p id="cookie"></p>
+    <hr>
+    <p>4. oninput upperCase change</p>
+    Enter you name: <input type="text" id="fname" oninput="upperCase()">
+    <hr>
+    <p>5. onmouseover & out</p>
+    <div onmouseover="mouseOver(this)" onmouseout="mouseOut(this)" 
+        style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+        Mouse Over Me</div>
+    
+    <hr>
+    <p>6. onmousedown & up</p>
+    <div onmousedown="mouseDown(this)" onmouseup="mouseUp(this)"
+        style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+        Click Me</div>
+    
+    <hr>
+    <p>7. addEventListener</p>
+    <p>This example uses the addEventListener() method to add many events on the same button.</p>
+    <button id="addEventBtn" style="width:100px; height: 50px;">Try it</button>
+    <p id="addEvent"></p>
+    <hr>
+    <p>8. event Bubbling & Capturing</p>
+    <div id="containerBox1">
+    <h2>Bubbling:</h2>
+    <p id="whiteBox1">Click me!</p>
+    </div><br>
+    <div id="containerBox2">
+    <h2>Capturing:</h2>
+    <p id="whiteBox2">Click me!</p>
+    </div>
+    <hr>
+    
+    </body>
+
+    <script>
+        //  1. element click text change
+        function changeText(element) {
+            element.innerHTML = "click dem"
+        }
+        //  2. button click date
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+        //  3. body onload cookie check 
+        function checkCookies() {
+            let text = "";
+            if (navigator.cookieEnabled == true) {
+                text = "Cookies are enabled";
+            } else {
+                text = "Cookies are not enabled";
+            }
+            document.getElementById('cookie').innerHTML = text;
+        }
+        //  4. oninput upperCase change
+        function upperCase() {
+            const input = document.getElementById('fname');
+            input.value = input.value.toUpperCase();
+        }
+        //  5. onmouseover & out
+        function mouseOver(element) {
+            element.innerHTML = "Over here"
+        }
+        function mouseOut(element) {
+            element.innerHTML = "Mouse Over Me"
+        }
+        //  6. onmousedown & up
+        function mouseDown(element) {
+            element.style.backgroundColor = "#1ec5e5";
+            element.innerHTML = "Release Me";
+        }
+        function mouseUp(element) {
+            element.style.backgroundColor = "black";
+            element.style.color = "white";
+            element.innerHTML = "Thank you";
+        }
+        //  7. addEventListener
+        var btn = document.getElementById('addEventBtn');
+        btn.addEventListener('mouseover', addEventFirstFunction);
+        btn.addEventListener('click', addEventSecondFunction);
+        btn.addEventListener('mouseout', addEventThirdFunction);
+        
+        function addEventFirstFunction() {
+            document.getElementById('addEvent').innerHTML += "Moused Over <br>";
+        }
+        function addEventSecondFunction() {
+            document.getElementById('addEvent').innerHTML += "Clicked <br>";
+        }
+        function addEventThirdFunction() {
+            document.getElementById('addEvent').innerHTML += "Moused Out <br>";
+        }
+
+        //  8. event Bubbling & Capturing
+        document.getElementById("whiteBox1").addEventListener("click", function() {
+            alert("You clicked the white element!");
+        }, false);
+
+        document.getElementById("containerBox1").addEventListener("click", function() {
+            alert("You clicked the orange element!");
+        }, false);
+
+        document.getElementById("whiteBox2").addEventListener("click", function() {
+            alert("You clicked the white element!");
+        }, true);
+
+        document.getElementById("containerBox2").addEventListener("click", function() {
+            alert("You clicked the orange element!");
+        }, true);
+        
+        //  9. window resize width height checking
+        window.addEventListener('resize', function() {
+            console.log(`${window.innerWidth} . ${window.innerHeight}`);
+        });
+    </script>
+</body>
+</html>
