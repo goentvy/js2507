@@ -1,0 +1,45 @@
+:root {
+  --main-color: #e60012;
+  --sub-color: #ff8040;
+  --bg-color: #ffffff;
+  --text-color: #333333;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: sans-serif; color: var(--text-color); background: var(--bg-color); }
+
+.site-header {
+  width:100%; background:#fff; border-bottom:1px solid #ddd;
+}
+.site-header .logo {
+  display:inline-block; width:200px; height:40px; margin:0.5em;
+}
+.main-nav .menu {
+  display:flex; list-style:none;
+}
+.main-nav .menu > li {
+  position:relative; margin-right:1em;
+}
+.main-nav .menu > li > a {
+  display:block; padding:1em; color: var(--text-color); text-decoration:none;
+}
+.main-nav .menu > li:hover > a {
+  background: var(--sub-color); color:#fff;
+}
+.submenu {
+  position:absolute; top:100%; left:0; background:#f9f9f9;
+  display:none; list-style:none; border:1px solid #ddd;
+}
+.menu > li:hover .submenu {
+  display:block; animation: fadeIn .3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(-10px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+/* 슬라이드, 탭, 팝업, 푸터 등은 순차적으로 추가 */
+.slide > img {
+    width: 1200px;
+    height: 300px;
+}

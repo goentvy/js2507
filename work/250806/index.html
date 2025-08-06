@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>JUST 쇼핑몰</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- A. Header 시작 -->
+  <header class="site-header">
+    <!-- A.1 로고 -->
+    <h1 class="logo">
+      <a href="#">
+        <img src="images/logo.png" alt="JUST 쇼핑몰 로고">
+      </a>
+    </h1>
+
+    <!-- A.2 메인 메뉴 -->
+    <nav class="main-nav">
+      <ul class="menu">
+        <li>
+          <a href="#">TOP</a>
+          <ul class="submenu">
+            <li><a href="#">블라우스</a></li>
+            <li><a href="#">셔츠</a></li>
+            <!-- … -->
+          </ul>
+        </li>
+        <li>
+          <a href="#">아우터</a>
+          <ul class="submenu">
+            <li><a href="#">코트</a></li>
+            <!-- … -->
+          </ul>
+        </li>
+        <!-- 나머지 메뉴 동일 구조 -->
+      </ul>
+    </nav>
+  </header>
+
+  <!-- B. 슬라이드 영역 -->
+  <section class="slider">
+    <div class="slides">
+      <div class="slide"><img src="images/slide1.jpg" alt=""><div class="caption">Slide Text 1</div></div>
+      <div class="slide"><img src="images/slide2.jpg" alt=""><div class="caption">Slide Text 2</div></div>
+      <div class="slide"><img src="images/slide3.jpg" alt=""><div class="caption">Slide Text 3</div></div>
+    </div>
+  </section>
+
+  <!-- C. 컨텐츠 영역 -->
+  <section class="contents">
+    <!-- C.1 탭: 공지사항 / 갤러리 -->
+    <div class="tabs">
+      <button data-tab="notice" class="active">공지사항</button>
+      <button data-tab="gallery">갤러리</button>
+    </div>
+    <div id="notice" class="tab-content active">
+      <ul>
+        <li><a href="#" class="open-popup">첫 번째 공지사항 제목</a></li>
+        <!-- 나머지 공지 -->
+      </ul>
+    </div>
+    <div id="gallery" class="tab-content">
+      <div class="thumbs">
+        <img src="images/gallery1.jpg" alt="">
+        <img src="images/gallery2.jpg" alt="">
+        <img src="images/gallery3.jpg" alt="">
+      </div>
+    </div>
+
+    <!-- C.3 배너, C.4 바로가기 -->
+    <div class="banners">
+      <a href="#"><img src="images/banner1.jpg" alt="배너1"></a>
+      <!-- … -->
+    </div>
+    <div class="shortcuts">
+      <a href="#">바로가기1</a>
+      <!-- … -->
+    </div>
+  </section>
+
+  <!-- D. Footer -->
+  <footer class="site-footer">
+    <img src="images/logo.png" alt="JUST 쇼핑몰 로고 (무채색)" class="footer-logo">
+    <p>© 2025 JUST 쇼핑몰. All rights reserved.</p>
+    <div class="sns">
+      <a href="#" aria-label="페이스북">FB</a>
+      <a href="#" aria-label="인스타그램">IG</a>
+      <a href="#" aria-label="트위터">TW</a>
+    </div>
+  </footer>
+
+  <script src="script/main.js"></script>
+</body>
+</html>
