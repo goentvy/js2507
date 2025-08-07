@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ JS ] 25.08.07</title>
+</head>
+<body>
+    <script>
+        const arr = [];
+        const obj = {};
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        };
+
+        const person1 = new Object({
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        });
+
+        const person3 = Object.create(person);
+        // console.log(person3);
+
+        const person2 = person;
+
+        // person2 의 키값이 담긴 object를 순회하여 빈배열 arr에 순서대로 넣어준다.
+        Object.keys(person2).map(per => {
+            arr.push(per);
+        })
+        // console.log(arr);
+        const arr2 = Object.getOwnPropertyNames(person2);
+        // console.log(arr2);
+
+        // console.log(arr === arr2);
+
+        const fruits = [
+            ["apples", 300],
+            ["pears", 900],
+            ["bananas", 500]
+        ];
+        // 배열 값을 객체화
+        const myObj = Object.fromEntries(fruits);
+        // console.log(myObj);
+
+
+        const person4 = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        };
+
+        const person5 = {
+            firstName: "Anne", 
+            lastName: "Smith"
+        };
+
+        // person5 속성 -> person4로 복사 후 반환
+        // 중복 속성은 person5 속성으로 덮어씌워짐.
+        Object.assign(person4, person5);
+
+        // person4의 키:속성값을 배열화
+        let text = Object.entries(person4);
+        // console.log(text);
+
+        const object1 = {
+            a: "somestring",
+            b: 42,
+        };
+
+        for ( const [key, value] of Object.entries(object1)) {
+            // console.log(`${key}: ${value}`);
+        }
+
+
+        function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+            // this.fullName = function() {
+            //     return this.firstName + " " + this.lastName;
+            // }
+        }
+        Person.prototype.fullName = function() {
+            return this.firstName + " " + this.lastName;
+        }
+
+        const juhwan = new Person('Lee', 'JuHwan', 34, 'black');
+        // console.log(juhwan.fullName());
+        juhwan.changeName = function(name) {
+            this.lastName = name;
+        }
+        juhwan.changeName('entvy');
+
+        const o = new Object()   // A new Object object
+        const a = new Array()    // A new Array object
+        const m = new Map()      // A new Map object
+        const s = new Set()      // A new Set object
+        const d = new Date()     // A new Date object
+        const r = new RegExp()   // A new RegExp object
+        const f = new Function() // A new Function object
+
+        // myFunction & fullName -> this -> Entvy 객체
+        const Entvy = {
+            firstName: 'En',
+            lastName: 'tvy',
+            id : 5566,
+            myFunction: function() {
+                return this;
+            },
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+
+        const dodo = {
+            firstName: 'do',
+            lastName: 'dodo',
+        }
+
+        // console.log(Entvy.fullName.call(dodo));
+        const bin = Entvy.fullName.bind(dodo);
+        // console.log(bin());
+
+        // // Copies properties from a source object to a target object
+        // // 소스객체의 속성을 대상객체로 복사 
+        // Object.assign(target, source)
+
+        // // Creates an object from an existing object
+        // // 기존객체에서 객체를 생성
+        // Object.create(object)
+
+        // // Returns an array of the key/value pairs of an object
+        // // 객체의 키/값 쌍의 배열 반환
+        // Object.entries(object)
+
+        // // Creates an object from a list of keys/values
+        // // 키/값의 목록에서 객체 생성
+        // Object.fromEntries()
+
+        // // Returns an array of the keys of an object
+        // // 객체의 키 배열을 반환
+        // Object.keys(object)
+
+        // // Returns an array of the property values of an object
+        // // 객체의 속성값을 배열 반환.
+        // Object.values(object)
+
+        // // Groups object elements according to a function
+        // // 함수에 따라 객체 요소를 그룹화
+        // Object.groupBy(object, callback)
+
+        const list = {Bananas:300, Oranges:200, Apples:500}; 
+
+        const myMap = new Map(Object.entries(list));
+
+        const fruit = [
+            {name:"apples", quantity:300},
+            {name:"bananas", quantity:500},
+            {name:"oranges", quantity:200},
+            {name:"kiwi", quantity:150}
+        ];
+
+        // Callback function to select low volumes 
+        function myCallback({ quantity }) {
+            return quantity > 200 ? "ok" : "low";
+        }
+
+        // Group by ok and low
+        const result = Object.groupBy(fruit, myCallback);
+
+        // Display Results
+        let content ="These fruit are Ok: <br>";
+        for (let [x,y] of result.ok.entries()) {
+            content += y.name + " " + y.quantity + "<br>";
+        }
+
+        content += "<br>These fruit are low: <br>";
+        for (let [x,y] of result.low.entries()) {
+            content += y.name + " " + y.quantity + "<br>";
+        }
+
+        // Property Management Methods
+        // Object.defineProperty
+        // 객체 속성 추가, 변경 및 속성(열거,구성,쓰기) 메타데이터 변경
+        const cha = {
+            firstName: "John",
+            lastName: "Doe",
+            language: "EN",
+            counter: 0,
+        }
+        Object.defineProperty(cha, "year", {value: "2008"});
+
+        // console.log(cha.year);
+
+        // Object.getOwnPropertyNames()
+        // 객체 내부 모든 속성 나열 (배열 내부 String 반환)
+        // 열거 불가능 속성도 나열
+        Object.getOwnPropertyNames(cha);
+
+        // Object.keys()
+        // 열거 가능한 객체 속성 나열 (배열 내부 String 반환)
+        Object.keys(cha);
+
+        // getter, setter
+        Object.defineProperty(cha, "fullName", {
+            get: function() { return this.firstName + " " + this.lastName; }
+        })
+        // console.log(cha.fullName);
+
+        Object.defineProperty(cha, "reset", {
+            get: function() { this.counter = 0; }
+        });
+        Object.defineProperty(cha, "increment", {
+            get: function() { this.counter++; }
+        });
+        Object.defineProperty(cha, "decrement", {
+            get: function() { this.counter--; }
+        });
+        Object.defineProperty(cha, "add", {
+            set: function(value) { this.counter += value; }
+        });
+        Object.defineProperty(cha, "subtract", {
+            set: function(value) { this.counter -= value; }
+        });
+
+        cha.reset;
+        cha.add = 30;
+        cha.subtract = 5;
+        // console.log(cha.counter);
+
+        /* Object Protection */
+        
+        // Prevents re-assignment
+        const car = {type:"Fiat", model:"500", color:"white"};
+
+        // // Prevents adding object properties
+        // Object.preventExtensions(object)
+
+        // // Returns true if properties can be added to an object
+        // Object.isExtensible(object)
+
+        // // Prevents adding and deleting object properties
+        // Object.seal(object)
+
+        // // Returns true if object is sealed
+        // Object.isSealed(object)
+
+        // // Prevents any changes to an object
+        // Object.freeze(object)
+
+        // // Returns true if object is frozen
+        // Object.isFrozen(object)
+        
+        /* Class Method */
+        class Cars {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+            age() {
+                const date = new Date();
+                return date.getFullYear() - this.year;
+            }
+        }
+        const cal = new Cars('Entvy', 33);
+        console.log(cal.age());
+
+        // Class Inheritance
+        class Car {
+            constructor(brand) {
+                this.carname = brand;
+            }
+            get cnam() {
+                return this.carname;
+            }
+            set cnam(x) {
+                this.carname = x;
+            }
+            present() {
+                return 'I have a ' + this.carname;
+            }
+        }
+
+        class Model extends Car {
+            constructor(brand, mod) {
+                super(brand);
+                this.model = mod;
+            }
+            show() {
+                return this.present() + ', it is a ' + this.model;
+            }
+        }
+
+        let myCar = new Model("ford", "Mustang");
+        console.log(myCar.show());
+    </script>
+</body>
+</html>
