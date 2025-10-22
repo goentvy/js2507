@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - 25.08.22</title>
+</head>
+<body>
+    <div id="result"></div>
+    <hr />
+    <div id="result1"></div>
+    <hr />
+    <div id="result2"></div>
+    <hr />
+    <div id="result3"></div>
+    <hr />
+    <div>num1 = 10, num2 = 20</div>
+    <div>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</div>
+    <div id="result4"></div>
+    <hr />
+
+    <script>
+        let a = true;
+        let b = false;
+        let c = 10 > 5;
+        let d = Boolean(null);
+
+        document.getElementById('result').innerHTML = `result: --${a}--`;
+        document.querySelector('#result1').innerHTML = `result1: --${b}--`;
+        document.querySelector('#result2').innerTHML = `result2: **${c}**`;
+        document.querySelector('#result3').innerHTML += `result3: %%${d}%%`;
+
+        // 사칙연산
+        let num1 = 10;
+        let num2 = 20;
+
+        document.querySelector('#result4').innerHTML = `덧셈: num1 + num2 = ${num1+num2}<br>`;
+        document.querySelector('#result4').innerHTML += `뺄셈: num1 - num2 = ${num1-num2}<br>`;
+        document.querySelector('#result4').innerHTML += `곱셈: num1 * num2 = ${num1*num2}<br>`;
+        document.querySelector('#result4').innerHTML += `나눗셈: num1 / num2 = ${num1/num2}<br>`;
+        
+    </script>
+</body>
+</html>
